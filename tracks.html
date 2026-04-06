@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Tracks — Opus Society</title>
+<link rel="stylesheet" href="_shared.css">
+<style>
+.tracks-section { background: var(--white); }
+.tracks-intro { max-width: 640px; margin-bottom: 5rem; }
+.track-full {
+  margin-bottom: 2px;
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.track-full:nth-child(even) { background: var(--white); }
+.track-sidebar {
+  background: var(--navy);
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.track-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+.track-sidebar h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+.track-sidebar p {
+  font-size: 0.87rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+}
+.track-content {
+  padding: 3.5rem;
+}
+.track-description {
+  font-size: 0.97rem;
+  font-weight: 300;
+  color: var(--text-mid);
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.track-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+.track-col-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.track-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+.track-list li {
+  font-size: 0.87rem;
+  font-weight: 400;
+  color: var(--text-mid);
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.track-list li::before { content: '–'; color: var(--gold); flex-shrink: 0; }
+.tags-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--cream-dark);
+}
+.tag {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  border: 1px solid var(--cream-dark);
+  background: var(--white);
+  padding: 0.3rem 0.8rem;
+  border-radius: 2px;
+}
+
+/* CTA */
+.tracks-cta { background: var(--navy-deep); text-align: center; }
+.tracks-cta .section-title { color: var(--white); }
+.tracks-cta-body {
+  font-size: 0.97rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.85;
+  max-width: 540px;
+  margin: 0 auto 2.5rem;
+}
+
+@media (max-width: 900px) {
+  .track-full { grid-template-columns: 1fr; }
+  .track-cols { grid-template-columns: 1fr; gap: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-logo-accent">Opus</span> Society</a>
+  <ul class="nav-links">
+    <li><a href="mission.html">Mission</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="tracks.html" class="active">Tracks</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScOeD3cRGY1Q2A4zV4-ZsRsJ67yOEDKR7nTsvE-dXuQdyB-Yw/viewform?usp=dialog" target="_blank" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-grid"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-eyebrow">Career tracks</div>
+    <h1>Find your <em>direction.</em></h1>
+    <p class="page-hero-sub">In Year Two, every Opus Fellow selects a track. Three paths. All consequential. All oriented toward public service.</p>
+  </div>
+</div>
+
+<section class="tracks-section">
+  <div class="section-inner">
+    <div class="tracks-intro">
+      <div class="section-label">The tracks</div>
+      <h2 class="section-title">Three paths into public service.</h2>
+      <p class="section-body">Career tracks are selected in Year Two of the fellowship. Each track shapes a fellow's mentorship, deliverables, and professional connections. Additional tracks may be added as the fellowship grows.</p>
+    </div>
+  </div>
+
+  <div class="track-full">
+    <div class="track-sidebar">
+      <div>
+        <div class="track-num">01</div>
+        <h3>Law &amp; Justice</h3>
+        <p>Law as public service. For students drawn to careers at the intersection of law, justice, and civic life.</p>
+      </div>
+    </div>
+    <div class="track-content">
+      <p class="track-description">Law as public service. This track prepares fellows for careers at the intersection of law and justice — public defense, civil rights advocacy, federal prosecution, and policy litigation. Fellows develop legal writing skills and build a foundation for law school and beyond.</p>
+      <div class="track-cols">
+        <div>
+          <div class="track-col-label">Skills developed</div>
+          <ul class="track-list">
+            <li>Legal writing and argumentation</li>
+            <li>Public interest law landscape overview</li>
+            <li>Law school application strategy and timeline</li>
+            <li>Policy litigation and advocacy methods</li>
+            <li>Case analysis and evidence-based reasoning</li>
+          </ul>
+        </div>
+        <div>
+          <div class="track-col-label">Career destinations</div>
+          <ul class="track-list">
+            <li>Public defender offices</li>
+            <li>Civil rights organizations (ACLU, NAACP LDF)</li>
+            <li>Federal prosecution and DOJ</li>
+            <li>Policy litigation firms</li>
+            <li>Government legal offices</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Public defense</span>
+        <span class="tag">Civil rights law</span>
+        <span class="tag">Federal prosecution</span>
+        <span class="tag">DOJ</span>
+        <span class="tag">ACLU</span>
+        <span class="tag">Policy litigation</span>
+        <span class="tag">Law school</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-full">
+    <div class="track-sidebar">
+      <div>
+        <div class="track-num">02</div>
+        <h3>Government &amp; Policy</h3>
+        <p>For students drawn to how government actually works — and who want to be inside it.</p>
+      </div>
+    </div>
+    <div class="track-content">
+      <p class="track-description">For students drawn to how government actually works. This track prepares fellows for careers in congressional offices, federal agencies, think tanks, and nonpartisan roles — with emphasis on policy analysis, professional writing, and understanding the D.C. career landscape before junior year.</p>
+      <div class="track-cols">
+        <div>
+          <div class="track-col-label">Skills developed</div>
+          <ul class="track-list">
+            <li>Policy memo and briefing document writing</li>
+            <li>Congressional and legislative process fluency</li>
+            <li>Federal agency structure and function</li>
+            <li>Nonpartisan research and analysis</li>
+            <li>Internship application strategy for Hill and agencies</li>
+          </ul>
+        </div>
+        <div>
+          <div class="track-col-label">Career destinations</div>
+          <ul class="track-list">
+            <li>Congressional staffing and Hill offices</li>
+            <li>Federal agencies (GAO, OMB, CBO)</li>
+            <li>Think tanks and policy institutes</li>
+            <li>State and local government</li>
+            <li>Nonprofit policy and advocacy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Congressional staffing</span>
+        <span class="tag">Federal agencies</span>
+        <span class="tag">GAO</span>
+        <span class="tag">Think tanks</span>
+        <span class="tag">Policy analysis</span>
+        <span class="tag">OMB</span>
+        <span class="tag">CBO</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="track-full">
+    <div class="track-sidebar">
+      <div>
+        <div class="track-num">03</div>
+        <h3>International Affairs</h3>
+        <p>For students drawn to America's role in the world — and who want to help shape it.</p>
+      </div>
+    </div>
+    <div class="track-content">
+      <p class="track-description">For students drawn to America's role in the world. This track prepares fellows for careers in diplomacy, national security, and international development — with emphasis on foreign policy analysis, area knowledge, and competitive fellowship preparation for programs like Rangel and Pickering.</p>
+      <div class="track-cols">
+        <div>
+          <div class="track-col-label">Skills developed</div>
+          <ul class="track-list">
+            <li>Foreign policy analysis and geopolitical research</li>
+            <li>Briefing memo and intelligence summary writing</li>
+            <li>Area studies and language strategy</li>
+            <li>Rangel, Pickering, and Boren fellowship preparation</li>
+            <li>Foreign Service application coaching</li>
+          </ul>
+        </div>
+        <div>
+          <div class="track-col-label">Career destinations</div>
+          <ul class="track-list">
+            <li>U.S. Foreign Service</li>
+            <li>State Department and embassies</li>
+            <li>National security agencies</li>
+            <li>International development organizations</li>
+            <li>International NGOs and think tanks</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tags-row">
+        <span class="tag">Foreign Service</span>
+        <span class="tag">State Department</span>
+        <span class="tag">National security</span>
+        <span class="tag">Int'l development</span>
+        <span class="tag">Rangel Fellowship</span>
+        <span class="tag">Pickering Fellowship</span>
+        <span class="tag">Diplomacy</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tracks-cta">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-label" style="justify-content:center;">
+      <span>Ready to apply?</span>
+    </div>
+    <h2 class="section-title" style="color:var(--white); max-width:560px; margin:0 auto 1rem;">Your track starts with your application.</h2>
+    <p class="tracks-cta-body">Track selection happens in Year Two — so don't worry about having everything figured out when you apply. Apply with curiosity. We'll help you find your direction.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScOeD3cRGY1Q2A4zV4-ZsRsJ67yOEDKR7nTsvE-dXuQdyB-Yw/viewform?usp=dialog" target="_blank" class="btn-primary">Apply for Fall 2026</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><span>Opus</span> Society</div>
+  <div class="footer-mid">Opening Pathways for Undergraduate Service<br>Clemson University · Established Fall 2026</div>
+  <ul class="footer-links">
+    <li><a href="mission.html">Mission</a></li>
+    <li><a href="program.html">Program</a></li>
+    <li><a href="tracks.html">Tracks</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
