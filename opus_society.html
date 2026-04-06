@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opus Society — Clemson University</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B2A4A;
+    --navy-deep: #0F1E38;
+    --gold: #C9A84C;
+    --gold-light: #E8D49A;
+    --cream: #F8F5EE;
+    --cream-dark: #EDE8DC;
+    --text: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #7a7a7a;
+    --white: #ffffff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(27, 42, 74, 0.97);
+    backdrop-filter: blur(8px);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-logo span {
+    color: var(--gold);
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy) !important;
+    background: var(--gold);
+    padding: 0.55rem 1.4rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--gold-light); color: var(--navy) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy-deep);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 8rem 4rem 6rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(201, 168, 76, 0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(27, 42, 74, 0.6) 0%, transparent 60%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 760px;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 7vw, 6rem);
+    font-weight: 500;
+    line-height: 1.0;
+    color: var(--white);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    line-height: 1.75;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--navy);
+    background: var(--gold);
+    padding: 0.9rem 2.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); }
+
+  .btn-ghost {
+    font-size: 0.78rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .btn-ghost:hover { color: var(--white); }
+  .btn-ghost::after { content: '→'; }
+
+  .hero-stats {
+    position: absolute;
+    right: 4rem;
+    bottom: 4rem;
+    display: flex;
+    gap: 3rem;
+    z-index: 1;
+  }
+
+  .stat {
+    text-align: right;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-top: 0.25rem;
+  }
+
+  /* SECTION BASE */
+  section {
+    padding: 7rem 4rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    max-width: 620px;
+    line-height: 1.85;
+  }
+
+  /* MISSION */
+  .mission {
+    background: var(--white);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .mission-values {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .value-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+    align-items: flex-start;
+  }
+
+  .value-item:first-child { border-top: 1px solid var(--cream-dark); }
+
+  .value-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--gold);
+    min-width: 2rem;
+    padding-top: 0.1rem;
+  }
+
+  .value-text h4 {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+  }
+
+  .value-text p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.65;
+  }
+
+  /* PROGRAM */
+  .program {
+    background: var(--cream);
+  }
+
+  .program-tracks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin-top: 4rem;
+    background: var(--cream-dark);
+  }
+
+  .track {
+    background: var(--white);
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .track::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .track:hover::before { opacity: 1; }
+
+  .track-year {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .track h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .track p {
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .track-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .track-items li {
+    font-size: 0.83rem;
+    font-weight: 400;
+    color: var(--text-mid);
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .track-items li::before {
+    content: '–';
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  /* TRACKS */
+  .tracks-section {
+    background: var(--navy);
+  }
+
+  .tracks-section .section-title { color: var(--white); }
+  .tracks-section .section-body { color: rgba(255,255,255,0.55); }
+
+  .career-tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 4rem;
+  }
+
+  .career-track {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 2.5rem;
+    position: relative;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .career-track:hover {
+    border-color: rgba(201,168,76,0.6);
+    background: rgba(201,168,76,0.04);
+  }
+
+  .track-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(201,168,76,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .track-icon svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .career-track h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 0.75rem;
+  }
+
+  .career-track p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+
+  .track-examples {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    color: rgba(201,168,76,0.8);
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 0.25rem 0.65rem;
+    border-radius: 1px;
+  }
+
+  /* WHY OPUS */
+  .why {
+    background: var(--white);
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .differentiator {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+  }
+
+  .differentiator:first-child { border-top: 1px solid var(--cream-dark); }
+
+  .diff-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+  }
+
+  .diff-body {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+
+  .pull-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--navy);
+    line-height: 1.4;
+    padding-left: 2rem;
+    border-left: 2px solid var(--gold);
+    position: sticky;
+    top: 7rem;
+  }
+
+  /* APPLY */
+  .apply-section {
+    background: var(--navy-deep);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .apply-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  .apply-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .apply-section .section-label { justify-content: center; }
+  .apply-section .section-label::before { display: none; }
+
+  .apply-section .section-title { color: var(--white); }
+
+  .apply-body {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.85;
+    margin-bottom: 2.5rem;
+  }
+
+  .apply-timeline {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin: 3rem 0;
+    position: relative;
+  }
+
+  .apply-timeline::before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    left: 15%;
+    right: 15%;
+    height: 1px;
+    background: rgba(201,168,76,0.2);
+  }
+
+  .timeline-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+  }
+
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-month {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-event {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy-deep);
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-mid {
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    line-height: 1.7;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-content > * {
+    opacity: 0;
+    animation: fadeUp 0.8s forwards ease-out;
+  }
+
+  .hero-eyebrow { animation-delay: 0.1s; }
+  .hero h1 { animation-delay: 0.25s; }
+  .hero-sub { animation-delay: 0.4s; }
+  .hero-actions { animation-delay: 0.55s; }
+  .hero-stats { animation: fadeUp 0.8s 0.6s forwards ease-out; opacity: 0; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 1.5rem; }
+    .hero { padding: 7rem 1.5rem 12rem; }
+    .hero-stats { right: 1.5rem; bottom: 3rem; gap: 2rem; }
+    .mission-grid, .why-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .program-tracks { grid-template-columns: 1fr; }
+    .career-tracks { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2.5rem 1.5rem; }
+    .pull-quote { position: static; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo"><span>Opus</span> Society</a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#apply" class="nav-cta">Apply</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Opus Society · Clemson University · Est. 2026</div>
+    <h1>Opening Pathways<br>for <em>Undergraduate</em><br>Service.</h1>
+    <p class="hero-sub">A competitive two-year fellowship preparing Clemson's most ambitious underclassmen for careers in public service, policy, law, and government.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-primary">Apply for Fall 2026</a>
+      <a href="#program" class="btn-ghost">Explore the fellowship</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">25</div>
+      <div class="stat-label">Fellows per cohort</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Year fellowship</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3</div>
+      <div class="stat-label">Career tracks</div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section class="mission" id="mission">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div>
+        <div class="section-label">Our mission</div>
+        <h2 class="section-title">Building the pipeline Clemson doesn't yet have.</h2>
+        <p class="section-body">No organization at Clemson currently prepares underclassmen for careers in public service and government. The Opus Society exists to close that gap — catching students early, before they've missed competitive windows or assumed those careers weren't available to them.</p>
+      </div>
+      <div class="mission-values">
+        <div class="value-item">
+          <div class="value-num">01</div>
+          <div class="value-text">
+            <h4>Excellence</h4>
+            <p>We hold our members and ourselves to a high standard of professional and intellectual rigor.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">02</div>
+          <div class="value-text">
+            <h4>Service</h4>
+            <p>We are oriented toward public good, not private gain. That orientation shapes everything we do.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">03</div>
+          <div class="value-text">
+            <h4>Access</h4>
+            <p>We exist specifically to open doors for students who don't yet know those doors exist.</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-num">04</div>
+          <div class="value-text">
+            <h4>Selectivity</h4>
+            <p>Our value to members depends on our standards. We are a fellowship, not a club.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAM -->
+<section class="program" id="program">
+  <div class="section-inner">
+    <div class="section-label">The fellowship</div>
+    <h2 class="section-title">Two years. Two tracks.<br>One clear direction.</h2>
+    <p class="section-body">Each year of the fellowship has a distinct focus — moving from foundational professionalization in Year One to substantive career development in Year Two.</p>
+    <div class="program-tracks">
+      <div class="track">
+        <div class="track-year">Year One</div>
+        <h3>Foundation Track</h3>
+        <p>Building the professional floor. Fellows develop the skills, vocabulary, and awareness to compete for public service opportunities — regardless of major.</p>
+        <ul class="track-items">
+          <li>Resume and LinkedIn for government and policy roles</li>
+          <li>Federal internship and fellowship pipeline overview</li>
+          <li>Professional networking and communication</li>
+          <li>1-on-1 mentorship from Executive Board members</li>
+          <li>One substantive deliverable per semester</li>
+        </ul>
+      </div>
+      <div class="track">
+        <div class="track-year">Year Two</div>
+        <h3>Accelerator Track</h3>
+        <p>Translating preparation into outcomes. Fellows develop a career niche, pursue competitive opportunities, and build a real professional network before junior year.</p>
+        <ul class="track-items">
+          <li>Career track specialization and tailored mentorship</li>
+          <li>Competitive fellowship application support</li>
+          <li>Policy memo and briefing document writing</li>
+          <li>Alumni and professional speaker series</li>
+          <li>Capstone deliverable: policy brief or portfolio</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TRACKS -->
+<section class="tracks-section" id="tracks">
+  <div class="section-inner">
+    <div class="section-label">Career tracks</div>
+    <h2 class="section-title">Find your direction.</h2>
+    <p class="section-body">In Year Two, fellows select a track that shapes their mentorship, deliverables, and professional connections. Three tracks. All consequential.</p>
+    <div class="career-tracks">
+
+      <div class="career-track">
+        <div class="track-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L3 7v10l9 5 9-5V7L12 2z"/><path d="M12 22V12"/><path d="M3 7l9 5 9-5"/></svg>
+        </div>
+        <h3>Law &amp; Justice</h3>
+        <p>Preparation for public interest law, civil rights, federal prosecution, and policy litigation. Emphasis on legal writing, advocacy, and the pipeline to law school and beyond.</p>
+        <div class="track-examples">
+          <span class="tag">Public defense</span>
+          <span class="tag">Civil rights law</span>
+          <span class="tag">Federal prosecution</span>
+          <span class="tag">DOJ</span>
+          <span class="tag">ACLU</span>
+        </div>
+      </div>
+
+      <div class="career-track">
+        <div class="track-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <h3>Government &amp; Policy</h3>
+        <p>Preparation for federal agency work, congressional staffing, think tanks, and nonpartisan accountability roles. Emphasis on policy analysis and memo writing.</p>
+        <div class="track-examples">
+          <span class="tag">Congressional staffing</span>
+          <span class="tag">Federal agencies</span>
+          <span class="tag">GAO</span>
+          <span class="tag">Think tanks</span>
+        </div>
+      </div>
+
+      <div class="career-track">
+        <div class="track-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        </div>
+        <h3>International Affairs</h3>
+        <p>Preparation for diplomacy, national security, and international development. Emphasis on foreign policy analysis, area knowledge, and competitive fellowships.</p>
+        <div class="track-examples">
+          <span class="tag">Foreign Service</span>
+          <span class="tag">State Department</span>
+          <span class="tag">National security</span>
+          <span class="tag">Int'l development</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY OPUS -->
+<section class="why">
+  <div class="section-inner">
+    <div class="section-label">Why Opus Society</div>
+    <h2 class="section-title">Different by design.</h2>
+    <div class="why-grid">
+      <div>
+        <div class="differentiator">
+          <div class="diff-label">Underclassmen first</div>
+          <p class="diff-body">Most programs at Clemson catch students junior or senior year — after the best windows have passed. Opus Society targets first and second years, when decisions about career direction are still being made.</p>
+        </div>
+        <div class="differentiator">
+          <div class="diff-label">Outcomes, not membership</div>
+          <p class="diff-body">Fellows leave with tangible deliverables: a polished policy memo, a fellowship application, a professional network. The question "what did you get out of it?" has a concrete answer.</p>
+        </div>
+        <div class="differentiator">
+          <div class="diff-label">Structural mentorship</div>
+          <p class="diff-body">Most organizations offer networking opportunities. Opus Society assigns a mentor, sets a meeting cadence, and ties deliverables to that relationship. Mentorship is built into the structure, not left to chance.</p>
+        </div>
+        <div class="differentiator">
+          <div class="diff-label">Selective by design</div>
+          <p class="diff-body">A cohort of 25. An application process. A two-year commitment. Membership in the Opus Society means something — to the students who earn it and to the employers and programs who see it.</p>
+        </div>
+      </div>
+      <div>
+        <p class="pull-quote">"There is no clear path to public service careers at Clemson. We are building it."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply-section" id="apply">
+  <div class="section-inner">
+    <div class="apply-inner">
+      <div class="section-label">Applications</div>
+      <h2 class="section-title">A competitive path starts here.</h2>
+      <p class="apply-body">Applications open late August 2026. Cohort size is capped at 25 fellows by design. Seats are limited — apply early.</p>
+
+      <div class="apply-timeline">
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">Late August</div>
+          <div class="timeline-event">Applications open</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">Mid-September</div>
+          <div class="timeline-event">Applications close</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">Late September</div>
+          <div class="timeline-event">Decisions sent</div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-dot"></div>
+          <div class="timeline-month">October</div>
+          <div class="timeline-event">Fellowship begins</div>
+        </div>
+      </div>
+
+      <a href="#" class="btn-primary">Register interest for Fall 2026</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><span>Opus</span> Society</div>
+  <div class="footer-mid">
+    Opening Pathways for Undergraduate Service<br>
+    Clemson University · Established Fall 2026
+  </div>
+  <ul class="footer-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#program">Program</a></li>
+    <li><a href="#tracks">Tracks</a></li>
+    <li><a href="#apply">Apply</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
